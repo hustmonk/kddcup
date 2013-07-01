@@ -50,6 +50,7 @@ void delete_candidate(const vector<Candidate> &same_author_candidates,
     CAuthor &author, int name_type);
 
 void merge_result(vector<int> *author_id_list, map<int, CAuthor*> *author_map) {
+  // delete the invalid data
   int sum0 = get_candidates_num(author_id_list, author_map);
   for (unsigned int i = 0; i < author_id_list->size(); ++i) {
     int author_id = (*author_id_list)[i];
@@ -66,6 +67,7 @@ void merge_result(vector<int> *author_id_list, map<int, CAuthor*> *author_map) {
   int merger_count = 0;
   int sum1 = get_candidates_num(author_id_list, author_map);
 
+  // merger
   for (unsigned int i = 0; i < author_id_list->size(); ++i) {
     int author_id = (*author_id_list)[i];
     CAuthor *author = (*author_map)[author_id];
@@ -280,8 +282,10 @@ int main(int argc, char** argv) {
   test();
 #endif
 
+  // 1. valid the lost middle name type
   vector<int> *only_author_id_list = author_list->get_only_author_id_list();
   NameIndex *name_index = NameIndex::get_instance();
+  // 1.1 find the middle name by using the author name
   for (unsigned int i = 0; i < only_author_id_list->size(); ++i) {
     int author_id1 = (*only_author_id_list)[i];
     CAuthor *author1 = author_list->get_author_by_id(author_id1);
@@ -318,7 +322,7 @@ int main(int argc, char** argv) {
     }
   }
 
-  // name index & game name
+  // 1.2 find the middle name by using the game name
   for (unsigned int i = 0; i < only_author_id_list->size(); ++i) {
     int author_id1 = (*only_author_id_list)[i];
     CAuthor *author1 = author_list->get_author_by_id(author_id1);
@@ -356,8 +360,10 @@ int main(int argc, char** argv) {
       }
     }
   }
+  // 1.3 valid
   loss_middle_name->valid();
 
+  // 2. create game_name
   for (unsigned int i = 0; i < author_id_list->size(); ++i) {
     int author_id = (*author_id_list)[i];
     CAuthor *author = author_list->get_author_by_id(author_id);
@@ -367,7 +373,8 @@ int main(int argc, char** argv) {
     author->create_game_name();
   }
 
-  // using author name
+  // 3. find the similar author
+  // 3.1 use the simply name of the author name
   for (unsigned int i = 0; i < author_id_list->size(); ++i) {
     int author_id = (*author_id_list)[i];
 
@@ -395,7 +402,7 @@ int main(int argc, char** argv) {
   }
   printf("CANDIDATE using author name[%d]\n", get_candidates_num(author_id_list, author_map));
 
-  // using game name
+  // 3.2 using the simply name of the game name
   for (unsigned int i = 0; i < author_id_list->size(); ++i) {
     int author_id = (*author_id_list)[i];
 
@@ -436,6 +443,7 @@ int main(int argc, char** argv) {
 
   printf("CANDIDATE using game name[%d]\n", get_candidates_num(author_id_list, author_map));
 
+  // 3.3 using the subname of the author name
   for (unsigned int i = 0; i < only_author_id_list->size(); ++i) {
     int author_id1 = (*only_author_id_list)[i];
     CAuthor *author1 = author_list->get_author_by_id(author_id1);
@@ -484,9 +492,10 @@ int main(int argc, char** argv) {
   
   int merger_count = 1;
   int times = 0;
+  // 4 check and merge result
   merge_result(author_id_list, author_map);
 
-  // write result
+  // 5 write result
   FILE *fout = fopen("result.csv", "w");
 #ifdef DEBUG
   memset(file_name_out, 0, sizeof(file_name_out[0])*128);
@@ -500,6 +509,7 @@ int main(int argc, char** argv) {
     int author_id = (*author_id_list)[i];
     CAuthor *author = (*author_map)[author_id];
     vector<Candidate> &candidates = author->get_same_author_candidates();
+    /*
       if (author->get_is_game_name()) {
         vector<CName*> game_names = author->get_game_names();
         for (unsigned int k = 0; k < game_names.size(); ++k) {
@@ -513,6 +523,7 @@ int main(int argc, char** argv) {
           valid(candidates, *author, 1+k);
         }
       }
+      */
     if (candidates.size() > 1) {
       qsort(&candidates[0], candidates.size(), sizeof(Candidate), cmp);
     }
