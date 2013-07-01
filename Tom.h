@@ -1,0 +1,353 @@
+/**
+ *  =============================================================
+ *
+ *     	Filename:  Tom.h
+ *   Description:  nickname table
+ *       Created:  06/09/2013 12:53:51 AM
+ *       Version:  
+ *      Revision:  #1;#4
+ *        Author:  liujingming(liujingminghust@163.com)
+ *
+ *  =============================================================
+ **/
+#ifndef C_Author_Disambiguation_Tom
+#define C_Author_Disambiguation_Tom
+class Tom{
+ private:
+  map<string, int> tom_tables;
+  static Tom *_instance;
+ public:
+  static Tom *get_instance() {
+    if (_instance == NULL) {
+      _instance = new Tom();
+    }
+    return _instance;
+  }
+
+  Tom() {
+    tom_tables.clear();
+tom_tables["abe"] = 0;
+tom_tables["abraham"] = 0;
+tom_tables["abel"] = 1;
+tom_tables["abelard"] = 1;
+tom_tables["alan"] = 2;
+tom_tables["eilian"] = 2;
+tom_tables["allan"] = 2;
+tom_tables["ailin"] = 2;
+tom_tables["aleander"] = 3;
+tom_tables["alec"] = 3;
+tom_tables["alet"] = 3;
+tom_tables["aled"] = 4;
+tom_tables["aledk"] = 4;
+tom_tables["alexander"] = 4;
+tom_tables["alex"] = 4;
+tom_tables["alexandria"] = 4;
+tom_tables["alexandra"] = 4;
+tom_tables["sandra"] = 4;
+tom_tables["andraw"] = 5;
+tom_tables["drew"] = 5;
+tom_tables["andy"] = 5;
+tom_tables["andrew"] = 5;
+tom_tables["annie"] = 6;
+tom_tables["anne"] = 6;
+tom_tables["ann"] = 6;
+tom_tables["anna"] = 6;
+tom_tables["barney"] = 7;
+tom_tables["barnard"] = 7;
+tom_tables["bart"] = 8;
+tom_tables["bartholomew"] = 8;
+tom_tables["beck"] = 9;
+tom_tables["rebecca"] = 9;
+tom_tables["becky"] = 9;
+tom_tables["belle"] = 10;
+tom_tables["arabella"] = 10;
+tom_tables["ben"] = 11;
+tom_tables["benjamin"] = 11;
+tom_tables["reuben"] = 11;
+tom_tables["bennett"] = 12;
+tom_tables["benedict"] = 12;
+tom_tables["bobby"] = 13;
+tom_tables["robert"] = 13;
+tom_tables["bob"] = 13;
+tom_tables["rob"] = 13;
+tom_tables["dobbin"] = 13;
+tom_tables["bert"] = 13;
+tom_tables["bertie"] = 13;
+tom_tables["robin"] = 13;
+tom_tables["robinson"] = 13;
+tom_tables["albert"] = 13;
+tom_tables["herbert"] = 13;
+tom_tables["bill"] = 14;
+tom_tables["will"] = 14;
+tom_tables["william"] = 14;
+tom_tables["billy"] = 14;
+tom_tables["cathy"] = 15;
+tom_tables["cathrine"] = 15;
+tom_tables["cathie"] = 15;
+tom_tables["kathy"] = 15;
+tom_tables["kathie"] = 15;
+tom_tables["kathleen"] = 15;
+tom_tables["kathrine"] = 15;
+tom_tables["charley"] = 16;
+tom_tables["charles"] = 16;
+tom_tables["charlie"] = 16;
+tom_tables["chris"] = 17;
+tom_tables["christian"] = 17;
+tom_tables["christopher"] = 17;
+tom_tables["christine"] = 17;
+tom_tables["christie"] = 17;
+tom_tables["christy"] = 17;
+tom_tables["cissie"] = 18;
+tom_tables["cecillia"] = 18;
+tom_tables["clare"] = 19;
+tom_tables["claraclarissa"] = 19;
+tom_tables["connie"] = 20;
+tom_tables["constance"] = 20;
+tom_tables["dan"] = 21;
+tom_tables["daniell"] = 21;
+tom_tables["danny"] = 22;
+tom_tables["daniel"] = 22;
+tom_tables["dave"] = 23;
+tom_tables["david"] = 23;
+tom_tables["dean"] = 24;
+tom_tables["deane"] = 24;
+tom_tables["deborah"] = 25;
+tom_tables["debby"] = 25;
+tom_tables["debora"] = 25;
+tom_tables["debbie"] = 25;
+tom_tables["dennis"] = 26;
+tom_tables["denis"] = 26;
+tom_tables["denny"] = 26;
+tom_tables["denys"] = 26;
+tom_tables["dick"] = 27;
+tom_tables["richard"] = 27;
+tom_tables["rich"] = 27;
+tom_tables["rick"] = 27;
+tom_tables["richie"] = 27;
+tom_tables["ricky"] = 27;
+tom_tables["ritchie"] = 27;
+tom_tables["dolly"] = 28;
+tom_tables["dorthea"] = 28;
+tom_tables["dorothy"] = 28;
+tom_tables["dora"] = 28;
+tom_tables["edie"] = 29;
+tom_tables["adam"] = 29;
+tom_tables["edward"] = 30;
+tom_tables["eddy"] = 30;
+tom_tables["ed"] = 30;
+tom_tables["eddie"] = 30;
+tom_tables["edwin"] = 30;
+tom_tables["theodore"] = 30;
+tom_tables["ted"] = 30;
+tom_tables["teddy"] = 30;
+tom_tables["theodor"] = 30;
+tom_tables["effie"] = 31;
+tom_tables["euphemia"] = 31;
+tom_tables["elizabeth"] = 32;
+tom_tables["beth"] = 32;
+tom_tables["elise"] = 32;
+tom_tables["lisa"] = 32;
+tom_tables["liza"] = 32;
+tom_tables["lizzie"] = 32;
+tom_tables["elsie"] = 32;
+tom_tables["alice"] = 32;
+tom_tables["liz"] = 32;
+tom_tables["elisabeth"] = 32;
+tom_tables["bess"] = 32;
+tom_tables["bessie"] = 32;
+tom_tables["betsy"] = 32;
+tom_tables["betty"] = 32;
+tom_tables["libby"] = 32;
+tom_tables["eliza"] = 32;
+tom_tables["ella"] = 33;
+tom_tables["eleanor"] = 33;
+tom_tables["elinor"] = 33;
+tom_tables["ellen"] = 33;
+tom_tables["emmie"] = 34;
+tom_tables["emmy"] = 34;
+tom_tables["emma"] = 34;
+tom_tables["eugene"] = 35;
+tom_tables["gene"] = 35;
+tom_tables["eugenia"] = 35;
+tom_tables["eveline"] = 36;
+tom_tables["evelyn"] = 36;
+tom_tables["eva"] = 36;
+tom_tables["eve"] = 36;
+tom_tables["fanny"] = 37;
+tom_tables["frances"] = 37;
+tom_tables["frank"] = 38;
+tom_tables["francis"] = 38;
+tom_tables["franklin"] = 38;
+tom_tables["frederick"] = 39;
+tom_tables["fred"] = 39;
+tom_tables["eric"] = 39;
+tom_tables["gaby"] = 40;
+tom_tables["gabriel"] = 40;
+tom_tables["geordie"] = 41;
+tom_tables["george"] = 41;
+tom_tables["georgie"] = 41;
+tom_tables["gertrude"] = 42;
+tom_tables["truddy"] = 42;
+tom_tables["gill"] = 43;
+tom_tables["juliana"] = 43;
+tom_tables["ginny"] = 44;
+tom_tables["ginnie"] = 44;
+tom_tables["virginia"] = 44;
+tom_tables["gracie"] = 45;
+tom_tables["grace"] = 45;
+tom_tables["ignativs"] = 46;
+tom_tables["ignace"] = 46;
+tom_tables["ignatz"] = 46;
+tom_tables["james"] = 47;
+tom_tables["jacob"] = 47;
+tom_tables["jim"] = 47;
+tom_tables["jimmy"] = 47;
+tom_tables["jenny"] = 48;
+tom_tables["jennie"] = 48;
+tom_tables["jennifer"] = 48;
+tom_tables["jerry"] = 49;
+tom_tables["gerald"] = 49;
+tom_tables["jeremiah"] = 49;
+tom_tables["jerome"] = 49;
+tom_tables["joe"] = 50;
+tom_tables["joseph"] = 50;
+tom_tables["john"] = 51;
+tom_tables["ivan"] = 51;
+tom_tables["jean"] = 51;
+tom_tables["sean"] = 251;
+tom_tables["jack"] = 51;
+tom_tables["johnny"] = 51;
+tom_tables["johnnie"] = 51;
+tom_tables["jan"] = 51;
+tom_tables["shawn"] = 251;
+tom_tables["judy"] = 52;
+tom_tables["judith"] = 52;
+tom_tables["judie"] = 52;
+tom_tables["julian"] = 53;
+tom_tables["julius"] = 53;
+tom_tables["julie"] = 54;
+tom_tables["julia"] = 54;
+tom_tables["kate"] = 55;
+tom_tables["catherine"] = 55;
+tom_tables["katherine"] = 55;
+tom_tables["kenny"] = 56;
+tom_tables["kenneth"] = 56;
+tom_tables["larry"] = 57;
+tom_tables["lawrence"] = 57;
+tom_tables["laura"] = 57;
+tom_tables["lorinda"] = 57;
+tom_tables["lolly"] = 57;
+tom_tables["loretta"] = 57;
+tom_tables["laurie"] = 57;
+tom_tables["leo"] = 58;
+tom_tables["leander"] = 58;
+tom_tables["leonard"] = 58;
+tom_tables["leopold"] = 58;
+tom_tables["len"] = 58;
+tom_tables["lenny"] = 58;
+tom_tables["loren"] = 59;
+tom_tables["lauren"] = 59;
+tom_tables["lori"] = 60;
+tom_tables["lorry"] = 60;
+tom_tables["mandy"] = 61;
+tom_tables["amanda"] = 61;
+tom_tables["margarita"] = 62;
+tom_tables["rita"] = 62;
+tom_tables["mary"] = 63;
+tom_tables["marie"] = 63;
+tom_tables["may"] = 63;
+tom_tables["mike"] = 64;
+tom_tables["michael"] = 64;
+tom_tables["mildrd"] = 65;
+tom_tables["mil"] = 65;
+tom_tables["milly"] = 65;
+tom_tables["millie"] = 65;
+tom_tables["nick"] = 66;
+tom_tables["nicholas"] = 66;
+tom_tables["nic"] = 66;
+tom_tables["pat"] = 67;
+tom_tables["patrick"] = 67;
+tom_tables["patricia"] = 67;
+tom_tables["patty"] = 67;
+tom_tables["patrice"] = 67;
+tom_tables["paul"] = 68;
+tom_tables["paulus"] = 68;
+tom_tables["paolo"] = 68;
+tom_tables["pablo"] = 68;
+tom_tables["paula"] = 68;
+tom_tables["pauline"] = 68;
+tom_tables["phillip"] = 69;
+tom_tables["philp"] = 69;
+tom_tables["philip"] = 69;
+tom_tables["phil"] = 69;
+tom_tables["philippus"] = 69;
+tom_tables["philippe"] = 69;
+tom_tables["philipp"] = 69;
+tom_tables["filippo"] = 69;
+tom_tables["felipe"] = 69;
+tom_tables["philippa"] = 69;
+tom_tables["randall"] = 70;
+tom_tables["randal"] = 70;
+tom_tables["randy"] = 70;
+tom_tables["randolph"] = 70;
+tom_tables["sammy"] = 71;
+tom_tables["samson"] = 71;
+tom_tables["samuel"] = 71;
+tom_tables["sam"] = 71;
+tom_tables["sammie"] = 71;
+tom_tables["sarah"] = 72;
+tom_tables["sara"] = 72;
+tom_tables["sally"] = 72;
+tom_tables["sallie"] = 72;
+tom_tables["steven"] = 73;
+tom_tables["stephen"] = 73;
+tom_tables["steve"] = 73;
+tom_tables["susana"] = 74;
+tom_tables["susan"] = 74;
+tom_tables["suzan"] = 74;
+tom_tables["susanne"] = 74;
+tom_tables["suzanne"] = 74;
+tom_tables["sue"] = 74;
+tom_tables["susanna"] = 74;
+tom_tables["susannah"] = 74;
+tom_tables["suzann"] = 74;
+tom_tables["terry"] = 75;
+tom_tables["terence"] = 75;
+tom_tables["tommy"] = 76;
+tom_tables["thomas"] = 76;
+tom_tables["tom"] = 76;
+tom_tables["tony"] = 77;
+tom_tables["anthony"] = 77;
+tom_tables["antoinette"] = 77;
+tom_tables["antonia"] = 77;
+tom_tables["toni"] = 77;
+tom_tables["vern"] = 78;
+tom_tables["vernon"] = 78;
+tom_tables["veronica"] = 79;
+tom_tables["ronnie"] = 79;
+tom_tables["winifred"] = 80;
+tom_tables["freda"] = 80;
+tom_tables["winnie"] = 80;
+tom_tables["freddie"] = 80;
+tom_tables["roderick"] = 301;
+tom_tables["rod"] = 301;
+tom_tables["jooa"] = 302;
+tom_tables["joao"] = 302;
+tom_tables["weng"] = 303;
+tom_tables["wen"] = 303;
+  }
+
+  bool is_tom(const string name1, const string name2) {
+    if (tom_tables.find(name1) == tom_tables.end()) {
+      return false;
+    }
+    if (tom_tables.find(name2) == tom_tables.end()) {
+      return false;
+    }
+    if (tom_tables[name1] == tom_tables[name2]) {
+      return true;
+    }
+    return false;
+  }
+};
+#endif
